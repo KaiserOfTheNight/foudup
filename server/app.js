@@ -15,10 +15,7 @@ app.get('/test', (req, res) => {
   res.json({ message: '✅ Test route working!' });
 });
 
-app.use(cors({
-  origin: ['http://localhost:5173'],
-  credentials: true
-}));
+
 app.use(express.json());
 app.use(cookieParser());
 
