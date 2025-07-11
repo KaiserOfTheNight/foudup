@@ -1,20 +1,26 @@
 import express from "express"
 const app = express();
 const port = process.env.PORT || 3000;
-import UserRoutes from './src/routes/user.route.js';
+import AuthRoutes from './src/routes/auth.route.js';
+import { connectDB } from './src/lib/db.js';
+import cookieParser from 'cookie-parser';
 
+app.use(express.json());
+app.use(cookieParser());
 
 app.get('/', (req, res) => {
   res.json('Hello, World!');
 });
 
-app.get('/api', (req, res) => {
-  res.json('This is my fucking api!');
-});
 
-app.use('/api', UserRoutes);
+app.use('/api/auth', AuthRoutes);
 
 
 app.listen(port, () => {
   console.log(`Server is running at http://localhost:${port}`);
+  connectDB();
 });
+
+
+
+
