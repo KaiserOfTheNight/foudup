@@ -12,7 +12,7 @@ app.get('/api', (req, res) => {
   res.json('This is my fucking api!');
 });
 
-app.use('/api/fuck', UserRoutes);
+app.use('/api', UserRoutes);
 
 
 app.listen(port, () => {
