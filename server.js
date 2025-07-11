@@ -25,19 +25,15 @@ app.get('/', (req, res) => {
 app.use('/api/auth', AuthRoutes);
 
 
-const startServer = async () => {
-  try {
-    await connectDB();
-    app.listen(port, () => {
-      console.log(`Server is running at http://localhost:${port}`);
-    });
-  } catch (error) {
-    console.error('Failed to start server:', error);
-    process.exit(1);
-  }
-};
+connectDB();
 
-startServer();
+app.listen(port, () => {
+  console.log(`Server is running at http://localhost:${port}`);
+});
+
+
+
+
 
 
 
