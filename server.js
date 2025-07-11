@@ -6,6 +6,10 @@ app.get('/', (req, res) => {
   res.json('Hello, World!');
 });
 
+app.get('/api', (req, res) => {
+  res.json('This is my fucking api!');
+});
+
 app.listen(port, () => {
   console.log(`Server is running at http://localhost:${port}`);
 });
